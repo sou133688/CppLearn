@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+
+#define SIZE 10
+
+class stack{
+    char stck[SIZE];
+    int tos;
+    public:
+        void init(); //スタックの初期化
+        void push(char ch); //スタックへ文字のプッシュ
+        char pop(); //スタックから文字のポップ
+};
+
+// スタックの初期化
+void stack::init(){
+    tos=0;
+}
+
+void stack::push(char ch){
+    if(tos == SIZE){
+        cout<<"Stack fulled";
+        return;
+    }
+    stck[tos]=ch;
+    tos++;
+}
+
+char stack::pop(){
+    if (tos==0){
+        cout<<"Stack empty";
+        return 0;
+    }
+    tos--;
+    return 0;
+}
+
+int main(){
+    stack s1,s2;
+    int i;
+
+    s1.init();
+    s2.init();
+    s1.push('a');
+    s2.push('x');
+    s1.push('b');
+    s2.push('y');
+    s1.push('c');
+    s2.push('z');
+
+    for (i = 0; i < 3; i++)cout<<"s1 pop"<<s1.pop()<<"\n";
+    for (i = 0; i < 3; i++)cout<<"s2 pop"<<s2.pop()<<"\n";
+    
+    return 0;
+}
